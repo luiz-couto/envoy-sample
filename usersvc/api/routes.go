@@ -1,4 +1,4 @@
-package usersvc
+package api
 
 import (
 	"context"

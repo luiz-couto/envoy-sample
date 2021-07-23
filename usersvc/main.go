@@ -1,10 +1,13 @@
-package usersvc
+package main
 
-import "context"
+import (
+	"context"
+	"envoy-sample/usersvc/api"
+)
 
 func main() {
 	ctx := context.Background()
-	server := NewServer()
+	server := api.NewServer()
 	server.Init(ctx)
 	server.Run("9001")
 }
