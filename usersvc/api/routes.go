@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
 
 	"envoy-sample/rest"
@@ -26,6 +27,10 @@ func (s *Server) CreateUserHandler() rest.Handler {
 			rest.ERROR(w, errors.New("fail when creating user"))
 			return
 		}
-
+		rest.JSON(w, 200, struct {
+			Message string
+		}{
+			Message: fmt.Sprintf("Successfully created %s user", data.Username),
+		})
 	})
 }

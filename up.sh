@@ -20,5 +20,5 @@ if [ ${#hasNamespace} == 0 ]; then
     kubectl create namespace ${NAMESPACE}
 fi
 
-kubectl create -f "${DIR}/deployment.yaml" -n ${NAMESPACE}
-kubectl create -f "${DIR}/service.yaml" -n ${NAMESPACE}
+kubectl apply -f "${DIR}/deployment.yaml" -n ${NAMESPACE}
+kubectl apply -f "${DIR}/service.yaml" -n ${NAMESPACE}

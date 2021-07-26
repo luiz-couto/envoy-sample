@@ -10,5 +10,5 @@ RUN go build
 
 FROM alpine
 WORKDIR /deploy
-COPY --from=build envoy-sample/usersvc usersvc
+COPY --from=build envoy-sample/usersvc .
 ENTRYPOINT ./usersvc

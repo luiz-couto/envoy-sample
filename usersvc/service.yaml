@@ -10,5 +10,6 @@ spec:
   ports:
   - name: usersvc
     port: 5000
+    targetPort: 9001
   selector:
     service: usersvc

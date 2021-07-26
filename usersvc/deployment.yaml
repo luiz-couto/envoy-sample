@@ -17,7 +17,6 @@ spec:
     spec:
       containers:
       - name: usersvc
-        image: usersvc
-        resources: {}
+        image: gcr.io/insprlabs/inspr/envey-sample/usersvc:latest
       restartPolicy: Always
 status: {}
