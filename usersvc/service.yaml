@@ -6,9 +6,9 @@ metadata:
     service: usersvc
   name: usersvc
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - name: usersvc
-    port: 80
+    port: 5000
   selector:
     service: usersvc

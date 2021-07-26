@@ -5,10 +5,10 @@ COPY go.mod go.mod
 RUN go mod download
 COPY . .
 
-WORKDIR /usersvc
+WORKDIR /envoy-sample/usersvc
 RUN go build
 
 FROM alpine
 WORKDIR /deploy
-COPY --from=build envoy-sample/usersvc/usersvc usersvc
+COPY --from=build envoy-sample/usersvc usersvc
 ENTRYPOINT ./usersvc
