@@ -5,10 +5,17 @@ COPY go.mod go.mod
 RUN go mod download
 COPY . .
 
-WORKDIR /envoy-sample/usersvc
+WORKDIR usersvc
 RUN go build
 
-FROM alpine
+FROM lyft/envoy:latest
 WORKDIR /deploy
+
 COPY --from=build envoy-sample/usersvc .
-ENTRYPOINT ./usersvc
+COPY usersvc/envoy.json .
+COPY usersvc/entrypoint.sh .
+
+RUN chmod +x entrypoint.sh
+
+CMD ./usersvc
+ENTRYPOINT ./entrypoint.sh
